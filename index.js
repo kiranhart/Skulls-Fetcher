@@ -47,7 +47,7 @@ const fetchHeads = async(start) => {
     const headInfo = await Promise.all(headUrls.map(fetchHeadInfo));
 
     const postHeads = await axios.post('https://rose.tweetzy.ca/minecraft/skulls', {
-        data: toInsert
+        data: headInfo
     })
 
     console.log(postHeads.data);
