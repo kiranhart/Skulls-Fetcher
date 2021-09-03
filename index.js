@@ -41,34 +41,10 @@ const fetchHeads = async(start) => {
 }
 
 (async() => {
-    // const headUrlRequest = await Promise.all([fetchHeads(0), fetchHeads(80)]);
-    // const headUrls = [].concat(...headUrlRequest);
+    const headUrlRequest = await Promise.all([fetchHeads(0), fetchHeads(80)]);
+    const headUrls = [].concat(...headUrlRequest);
 
-    // const headInfo = await Promise.all(headUrls.map(fetchHeadInfo));
-    
-    const toInsert = [
-        {
-            "id": 46673,
-            "name": "Loki",
-            "category": "Humans",
-            "tags": [
-                "Hair (black)",
-                "Male",
-                "Marvel Comics",
-                "Other Headgear"
-            ],
-            "texture": "https://textures.minecraft.net/texture/2c673c81985e149158f6b063e6be090aef54151f0f3afd7a8322303ab99280e9"
-        },
-        {
-            "id": 46672,
-            "name": "Stuffed Bell Pepper",
-            "category": "Food & Drinks",
-            "tags": [
-                "Meal"
-            ],
-            "texture": "https://textures.minecraft.net/texture/b6c98b410123b0944422303798fc2db8cea0feeb09d0da40f5361b59498f3e8b"
-        }
-    ]
+    const headInfo = await Promise.all(headUrls.map(fetchHeadInfo));
 
     const postHeads = await axios.post('https://rose.tweetzy.ca/minecraft/skulls', {
         data: toInsert
