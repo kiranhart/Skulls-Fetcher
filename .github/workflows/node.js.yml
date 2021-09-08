@@ -5,7 +5,7 @@ name: Fetch Heads
 
 on:
   schedule: 
-    - cron: '*/5 * * * *'
+    - cron: '0 * * * *'
 
 jobs:
   build:
