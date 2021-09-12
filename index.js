@@ -18,13 +18,15 @@ const fetchHeadInfo = async(headUrl) => {
     })
 
     const texture = `https://textures.minecraft.net/texture/${$('#UUID-Skin').text().trim()}`;
+    const image = `https://minecraft-heads.com/${$('#main > div > div.ym-col3 > div.ym-cbox.ym-clearfix > div > img').attr('src')}`;
 
     return {
         id,
         name,
         category,
         tags,
-        texture
+        texture,
+        image
     };
 }
 
