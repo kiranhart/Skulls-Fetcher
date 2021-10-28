@@ -60,7 +60,8 @@ const fetchHeads = async(start) => {
         fetchHeads(0), 
         fetchHeads(80),
         fetchHeads(160),
-        fetchHeads(240)
+        fetchHeads(240),
+        fetchHeads(320)
     ]);
 
     const headUrls = [].concat(...headUrlRequest);
