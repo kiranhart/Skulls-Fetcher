@@ -58,7 +58,9 @@ const fetchHeads = async(start) => {
 (async() => {
     const headUrlRequest = await Promise.all([
         fetchHeads(0), 
-        fetchHeads(80)
+        fetchHeads(80),
+        fetchHeads(160),
+        fetchHeads(240)
     ]);
 
     const headUrls = [].concat(...headUrlRequest);
