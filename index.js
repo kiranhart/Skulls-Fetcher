@@ -58,19 +58,30 @@ const fetchHeads = async(start) => {
 (async() => {
     const headUrlRequest = await Promise.all([
         fetchHeads(0), 
-        fetchHeads(80)
+        fetchHeads(80),
+        fetchHeads(160)
     ]);
 
     const headUrls = [].concat(...headUrlRequest);
     const headInfo = await Promise.all(headUrls.map(fetchHeadInfo));
 
-    const postHeads = await axios.post('https://rose.tweetzy.ca/minecraft/skulls', {
-        data: headInfo,
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-    })
+    try {
+        const prod = 'https://rose.tweetzy.ca/minecraft/skulls';
+        const local = 'http://localhost:2020/minecraft/skulls';
+        
+        const postHeads = await axios.post(prod, {
+            data: headInfo,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        });
 
-    console.log(postHeads.data);
+
+        console.log(postHeads.data);
+
+    } catch(error) {
+        console.log(error);
+    }
+
 })();
