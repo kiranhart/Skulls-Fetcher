@@ -79,7 +79,7 @@ const fetchHeads = async (start) => {
 
         console.log(headInfo);
 
-        const postHeads = await axios.post(local, {
+        const postHeads = await axios.post(prod, {
             data: headInfo,
             headers: {
                 'Content-Type': 'application/json',
